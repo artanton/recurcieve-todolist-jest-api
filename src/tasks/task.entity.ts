@@ -1,7 +1,17 @@
-import { Entity, Column } from 'typeorm';
+import { ObjectId } from 'mongodb';
+import {
+  Entity,
+  Column,
+  ObjectIdColumn,
+  CreateDateColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 
-@Entity('users')
+@Entity('tasks')
 export class Task {
+  @ObjectIdColumn()
+  _id: ObjectId;
+
   @Column()
   text: string;
 
@@ -13,4 +23,10 @@ export class Task {
 
   @Column()
   parentId: string;
+
+  @CreateDateColumn()
+  createdAt: Date;
+
+  @UpdateDateColumn()
+  updatedAt: Date;
 }

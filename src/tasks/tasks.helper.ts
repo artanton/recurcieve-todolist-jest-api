@@ -1,6 +1,11 @@
-import { ITask } from './task.model';
+export interface ITask {
+  text: string;
+  date: string;
+  subLevel: number;
+  parentId: string;
+}
 
-const groupTasksByParentId = (tasks: ITask[]) => {
+export const groupTasksByParentId = (tasks: ITask[]) => {
   const taskMap = {};
   tasks.forEach((task: ITask) => {
     if (!taskMap[task.parentId]) {
@@ -10,5 +15,3 @@ const groupTasksByParentId = (tasks: ITask[]) => {
   });
   return taskMap;
 };
-
-export default groupTasksByParentId;
