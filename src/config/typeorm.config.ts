@@ -8,7 +8,7 @@ export const typeOrmAsyncConfig: TypeOrmModuleAsyncOptions = {
     url: configService.get<string>('DB_HOST'),
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    synchronize: true,
+    synchronize: false,
     autoLoadEntities: true,
     logging: true,
   }),
